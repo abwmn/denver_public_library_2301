@@ -17,7 +17,6 @@ RSpec.describe Book do
   it 'has attributes' do
     expect(@book.title).to eq("To Kill a Mockingbird")
     expect(@book.author).to eq("Harper Lee")
-    require 'pry'; binding.pry
     expect(@book.publication_year).to eq("1960")
-  end
+  end  
 end

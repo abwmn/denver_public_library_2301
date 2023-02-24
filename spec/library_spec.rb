@@ -19,7 +19,6 @@ RSpec.describe Library do
 
   it 'can add authors' do
     expect(@library.authors).to eq([])
-    # require 'pry'; binding.pry
     @library.add_author(@charlotte_bronte)
     expect(@library.authors).to eq([@charlotte_bronte])
   end
@@ -33,7 +32,6 @@ RSpec.describe Library do
 
   it 'can show publication time frame of author' do
     @library.add_author(@charlotte_bronte)
-    # require 'pry'; binding.pry
     expect(@library.publication_time_frame_for("Charlotte Bronte")).to eq({start: "1847", end: "1853"})
   end
 
