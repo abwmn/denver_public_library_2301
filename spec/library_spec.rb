@@ -36,4 +36,17 @@ RSpec.describe Library do
     # require 'pry'; binding.pry
     expect(@library.publication_time_frame_for("Charlotte Bronte")).to eq({start: "1847", end: "1853"})
   end
+
+  it 'can check out/return books and count times checked out' do
+    @library.add_author(@charlotte_bronte)
+    expect(@library.checked_out).to eq([])
+    @library.check_out(@jane_eyre)
+    expect(@library.checked_out).to eq([@jane_eyre])
+    @library.return(@jane_eyre)
+    expect(@library.checked_out).to eq([])
+    @library.check_out(@jane_eyre)
+    @library.check_out(@villette)
+    expect(@library.checked_out).to eq([@jane_eyre, @villette])
+    expect(@library.most_checked_out).to eq(@jane_eyre)
+  end
 end
